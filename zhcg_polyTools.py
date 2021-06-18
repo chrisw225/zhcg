@@ -2688,11 +2688,11 @@ def pf_72(errorString = 'errorString'):
 class pf_69(object):
 
     def __init__(self, *nums):
-        if len(nums) == 1 and isinstance(nums[0], (list, tuple)) and len(nums[0]) == 3 and all((isinstance(i, (int, float, long)) for i in nums[0])):
+        if len(nums) == 1 and isinstance(nums[0], (list, tuple)) and len(nums[0]) == 3 and all((isinstance(i, (int, float, int)) for i in nums[0])):
             self.x = nums[0][0]
             self.y = nums[0][1]
             self.z = nums[0][2]
-        elif len(nums) == 3 and all((isinstance(i, (int, long, float)) for i in nums)):
+        elif len(nums) == 3 and all((isinstance(i, (int, int, float)) for i in nums)):
             self.x = nums[0]
             self.y = nums[1]
             self.z = nums[2]
@@ -2711,7 +2711,7 @@ class pf_69(object):
     def __add__(self, other):
         if isinstance(other, self.__class__):
             return self.__class__(self.x + other.x, self.y + other.y, self.z + other.z)
-        if isinstance(other, (tuple, list)) and len(other) == 3 and all((isinstance(i, (int, float, long)) for i in other)):
+        if isinstance(other, (tuple, list)) and len(other) == 3 and all((isinstance(i, (int, float, int)) for i in other)):
             return self.__class__(self.x + other[0], self.y + other[1], self.z + other[2])
         raise TypeError('Illegal argument type!')
 
@@ -2721,7 +2721,7 @@ class pf_69(object):
             self.y += other.y
             self.z += other.z
             return self
-        if isinstance(other, (tuple, list)) and len(other) == 3 and all((isinstance(i, (int, float, long)) for i in other)):
+        if isinstance(other, (tuple, list)) and len(other) == 3 and all((isinstance(i, (int, float, int)) for i in other)):
             self.x += other[0]
             self.y += other[1]
             self.z += other[2]
@@ -2733,7 +2733,7 @@ class pf_69(object):
     def __sub__(self, other):
         if isinstance(other, self.__class__):
             return self.__class__(self.x - other.x, self.y - other.y, self.z - other.z)
-        if isinstance(other, (tuple, list)) and len(other) == 3 and all((isinstance(i, (int, float, long)) for i in other)):
+        if isinstance(other, (tuple, list)) and len(other) == 3 and all((isinstance(i, (int, float, int)) for i in other)):
             return self.__class__(self.x - other[0], self.y - other[1], self.z - other[2])
         raise TypeError('Illegal argument type!')
 
@@ -2743,7 +2743,7 @@ class pf_69(object):
             self.y -= other.y
             self.z -= other.z
             return self
-        if isinstance(other, (tuple, list)) and len(other) == 3 and all((isinstance(i, (int, float, long)) for i in other)):
+        if isinstance(other, (tuple, list)) and len(other) == 3 and all((isinstance(i, (int, float, int)) for i in other)):
             self.x -= other[0]
             self.y -= other[1]
             self.z -= other[2]
@@ -2753,12 +2753,12 @@ class pf_69(object):
     __rsub__ = __sub__
 
     def __mul__(self, num):
-        if isinstance(num, (int, long, float)):
+        if isinstance(num, (int, int, float)):
             return self.__class__(self.x * num, self.y * num, self.z * num)
         raise TypeError('Illegal argument type!')
 
     def __imul__(self, num):
-        if isinstance(num, (int, long, float)):
+        if isinstance(num, (int, int, float)):
             self.x *= num
             self.y *= num
             self.z *= num
@@ -2768,12 +2768,12 @@ class pf_69(object):
     __rmul__ = __mul__
 
     def __div__(self, num):
-        if isinstance(num, (int, long, float)):
+        if isinstance(num, (int, int, float)):
             return self.__class__(self.x / float(num), self.y / float(num), self.z / float(num))
         raise TypeError('Illegal argument type!')
 
     def __idiv__(self, num):
-        if isinstance(num, (int, long, float)):
+        if isinstance(num, (int, int, float)):
             self.x /= float(num)
             self.y /= float(num)
             self.z /= float(num)
@@ -2795,11 +2795,11 @@ class pf_69(object):
         return (self.x ** 2 + self.y ** 2 + self.z ** 2) ** 0.5
 
     def distance(self, *nums):
-        if len(nums) == 1 and isinstance(nums[0], (list, tuple)) and len(nums[0]) == 3 and all((isinstance(i, (int, float, long)) for i in nums[0])):
+        if len(nums) == 1 and isinstance(nums[0], (list, tuple)) and len(nums[0]) == 3 and all((isinstance(i, (int, float, int)) for i in nums[0])):
             return ((self.x - nums[0][0]) ** 2 + (self.y - nums[0][2]) ** 2 + (self.z - nums[0][2]) ** 2) ** 0.5
         if len(nums) == 1 and isinstance(nums[0], self.__class__):
             return ((self.x - nums[0].x) ** 2 + (self.y - nums[0].y) ** 2 + (self.z - nums[0].z) ** 2) ** 0.5
-        if len(nums) == 3 and all((isinstance(i, (int, long, float)) for i in nums)):
+        if len(nums) == 3 and all((isinstance(i, (int, int, float)) for i in nums)):
             return ((self.x - nums[0]) ** 2 + (self.y - nums[1]) ** 2 + (self.z - nums[2]) ** 2) ** 0.5
         raise TypeError('Illegal argument type!')
 
