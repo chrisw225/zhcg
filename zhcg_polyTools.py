@@ -162,9 +162,9 @@ def delCmd():
         except:
             pass
 def prtCmd():
-    print '\n\n\n\n\n' + ver + ' nameCommands:\n'
+    print('\n\n\n\n\n' + ver + ' nameCommands:\n')
     for i in sorted(commandDict.keys()):
-        print i
+        print ('i')
 setCmd()
 mc.optionVar(iv=['zhcg_polyTools_setNamedCommand', 1])
 mc.optionVar(iv=['zhcg_polyTools_setNamedCommand2', 1])
@@ -2701,7 +2701,7 @@ class pf_69(object):
             self.y = 0
             self.z = 0
         else:
-            raise TypeError, 'Illegal argument type!'
+            raise TypeError ('Illegal argument type!')
 
     def __str__(self):
         return '<<%s,%s,%s>>' % (self.x, self.y, self.z)
@@ -2713,7 +2713,7 @@ class pf_69(object):
             return self.__class__(self.x + other.x, self.y + other.y, self.z + other.z)
         if isinstance(other, (tuple, list)) and len(other) == 3 and all((isinstance(i, (int, float, long)) for i in other)):
             return self.__class__(self.x + other[0], self.y + other[1], self.z + other[2])
-        raise TypeError, 'Illegal argument type!'
+        raise TypeError('Illegal argument type!')
 
     def __iadd__(self, other):
         if isinstance(other, self.__class__):
@@ -2726,7 +2726,7 @@ class pf_69(object):
             self.y += other[1]
             self.z += other[2]
             return self
-        raise TypeError, 'Illegal argument type!'
+        raise TypeError('Illegal argument type!')
 
     __radd__ = __add__
 
@@ -2735,7 +2735,7 @@ class pf_69(object):
             return self.__class__(self.x - other.x, self.y - other.y, self.z - other.z)
         if isinstance(other, (tuple, list)) and len(other) == 3 and all((isinstance(i, (int, float, long)) for i in other)):
             return self.__class__(self.x - other[0], self.y - other[1], self.z - other[2])
-        raise TypeError, 'Illegal argument type!'
+        raise TypeError('Illegal argument type!')
 
     def __isub__(self, other):
         if isinstance(other, self.__class__):
@@ -2748,14 +2748,14 @@ class pf_69(object):
             self.y -= other[1]
             self.z -= other[2]
             return self
-        raise TypeError, 'Illegal argument type!'
+        raise TypeError('Illegal argument type!')
 
     __rsub__ = __sub__
 
     def __mul__(self, num):
         if isinstance(num, (int, long, float)):
             return self.__class__(self.x * num, self.y * num, self.z * num)
-        raise TypeError, 'Illegal argument type!'
+        raise TypeError('Illegal argument type!')
 
     def __imul__(self, num):
         if isinstance(num, (int, long, float)):
@@ -2763,14 +2763,14 @@ class pf_69(object):
             self.y *= num
             self.z *= num
             return self
-        raise TypeError, 'Illegal argument type!'
+        raise TypeError('Illegal argument type!')
 
     __rmul__ = __mul__
 
     def __div__(self, num):
         if isinstance(num, (int, long, float)):
             return self.__class__(self.x / float(num), self.y / float(num), self.z / float(num))
-        raise TypeError, 'Illegal argument type!'
+        raise TypeError('Illegal argument type!')
 
     def __idiv__(self, num):
         if isinstance(num, (int, long, float)):
@@ -2778,7 +2778,7 @@ class pf_69(object):
             self.y /= float(num)
             self.z /= float(num)
             return self
-        raise TypeError, 'Illegal argument type!'
+        raise TypeError('Illegal argument type!')
 
     def __nonzero__(self):
         return self.x or self.y or self.z
@@ -2801,7 +2801,7 @@ class pf_69(object):
             return ((self.x - nums[0].x) ** 2 + (self.y - nums[0].y) ** 2 + (self.z - nums[0].z) ** 2) ** 0.5
         if len(nums) == 3 and all((isinstance(i, (int, long, float)) for i in nums)):
             return ((self.x - nums[0]) ** 2 + (self.y - nums[1]) ** 2 + (self.z - nums[2]) ** 2) ** 0.5
-        raise TypeError, 'Illegal argument type!'
+        raise TypeError('Illegal argument type!')
 
     def toList(self):
         return [self.x, self.y, self.z]
@@ -3246,10 +3246,10 @@ def pf_14(selFaces):
             outlineEdges = pf_09(selFaces)
             interVtxs = pf_65(selFaces)
             if interEdges and interVtxs and pf_21(interVtxs):
-                pat = `[len(outlineEdges),
+                pat = [len(outlineEdges),
                  len(selFaces),
                  len(interEdges),
-                 len(interVtxs)]`.replace(' ', '')
+                 len(interVtxs)].replace(' ', '')
                 if pat in gridDict2:
                     return gridDict2[pat]
 
